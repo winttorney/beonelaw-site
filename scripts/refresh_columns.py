@@ -78,6 +78,18 @@ tab_html = '<div class="tabs">' + "".join(
 panels = "".join(f'<div class="panel{" on" if i == 0 else ""}">{plist(v)}</div>' for i, (k, n, v) in enumerate(tabs))
 update("cases.html", "cases", tab_html + panels)
 
+# stylesheet version stamp, so browsers fetch a changed style.css right away
+import hashlib
+ver = hashlib.sha256(open(os.path.join(SITE, "style.css"), "rb").read()).hexdigest()[:8]
+for f in sorted(os.listdir(SITE)):
+    if f.endswith(".html"):
+        path = os.path.join(SITE, f)
+        text = open(path, encoding="utf-8").read()
+        out = re.sub(r'href="style\.css(\?v=[0-9a-f]+)?"', f'href="style.css?v={ver}"', text)
+        if out != text:
+            open(path, "w", encoding="utf-8").write(out)
+            print("stamped", f)
+
 # sitemap
 pages = sorted(f for f in os.listdir(SITE) if f.endswith(".html"))
 urls = [BASE + "/"] + [f"{BASE}/{f[:-5]}" for f in pages if f != "index.html"]
