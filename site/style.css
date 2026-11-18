@@ -186,3 +186,7 @@ a.card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 10
 @media (max-width:1100px){.groups{grid-template-columns:1fr 1fr}}
 @media (max-width:900px){.dd-menu{display:block;position:static;box-shadow:none;background:transparent;padding:0 0 0 12px;min-width:0}.dd-menu a{color:#fff;opacity:.75!important;padding:6px 0}.dd-menu a:hover{background:transparent}}
 @media (max-width:560px){.groups{grid-template-columns:1fr}}
+
+/* copy-number toast (desktop) */
+.toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:14px 22px;border-radius:999px;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:100;max-width:90vw;text-align:center}
+.toast.on{opacity:1;transform:translate(-50%,0)}

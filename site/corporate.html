@@ -12,7 +12,7 @@
 <meta property="og:description" content="스타트업과 중소기업의 설립 구조, 주주간·동업 계약, 거래·용역·비밀유지 계약 검토, 프랜차이즈 가맹계약, 저작권·지식재산 보호, 가상자산 관련 분쟁, 직장 내 괴롭힘 대응까지 이혜승 대표변호사가 자문합니다.">
 <meta property="og:url" content="https://beonelaw.com/corporate">
 <meta property="og:locale" content="ko_KR">
-<link rel="stylesheet" href="style.css?v=0d3028f8">
+<link rel="stylesheet" href="style.css?v=05fceefd">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "LegalService", "name": "비원 법률사무소", "alternateName": "BEONE Law Office", "url": "https://beonelaw.com/", "telephone": "+82-507-1381-8874", "areaServed": "KR", "address": {"@type": "PostalAddress", "streetAddress": "서초대로 77길 17, 11층 1115-1호", "addressLocality": "서초구", "addressRegion": "서울특별시", "addressCountry": "KR"}, "founder": {"@type": "Person", "name": "이혜승", "jobTitle": "대표변호사"}, "sameAs": ["https://www.youtube.com/@winttorney", "https://beone1.tistory.com"], "email": "winttorney@gmail.com"}</script>
 </head>
 <body>
@@ -73,6 +73,25 @@
     function show(i){tabs.forEach(function(x){x.classList.remove('on')});panels.forEach(function(x){x.classList.remove('on')});tabs[i].classList.add('on');panels[i].classList.add('on');}
     tabs.forEach(function(t,i){t.addEventListener('click',function(){show(i);if(t.dataset.key)history.replaceState(null,'','#'+t.dataset.key);});});
     var h=location.hash.slice(1);tabs.forEach(function(t,i){if(h&&t.dataset.key===h)show(i);});
+  });
+})();
+</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  /* PC에서는 전화를 걸 수 없으니 번호를 복사하고 안내한다. 휴대폰은 그대로 전화 앱이 열린다. */
+  var desktop = window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  if(!desktop) return;
+  var toast=document.getElementById('toast'), timer;
+  function show(msg){toast.textContent=msg;toast.classList.add('on');clearTimeout(timer);timer=setTimeout(function(){toast.classList.remove('on')},2600);}
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var num='0507-1381-8874';
+      var done=function(){show('전화번호 '+num+' 가 복사되었습니다. 휴대폰으로 전화해 주세요.')};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(num).then(done,function(){show('전화번호: '+num)});}
+      else{show('전화번호: '+num)}
+    });
   });
 })();
 </script>
