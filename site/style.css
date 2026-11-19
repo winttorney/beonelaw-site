@@ -190,3 +190,4 @@ a.card:hover{border-color:var(--navy);transform:translateY(-3px);box-shadow:0 10
 /* copy-number toast (desktop) */
 .toast{position:fixed;left:50%;bottom:32px;transform:translate(-50%,20px);background:var(--navy);color:#fff;padding:14px 22px;border-radius:999px;font-size:15px;box-shadow:0 10px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.25s;z-index:100;max-width:90vw;text-align:center}
 .toast.on{opacity:1;transform:translate(-50%,0)}
+.hero .spec-badge{display:inline-block;margin-top:18px;padding:7px 14px;border:1px solid currentColor;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:.02em;opacity:.95}
